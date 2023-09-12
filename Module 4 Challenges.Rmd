@@ -1,0 +1,77 @@
+---
+title: "Mod 4 Challenges"
+author: "Reese Hotten-Somers"
+date: "2023-09-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Challenge 1:
+v <- c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
+print(strsplit(v, NULL)[[2]])
+
+Challenge 2:
+m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m
+x<-m[,c(2,3,6)]
+x
+x<-m[c(6,8),]
+x
+
+Challenge 3:
+a<- array(data = 400:1, dim= c(5,5,4,4))
+a
+a[1,1,1,2]
+a[2,3,2,]
+a[1:5,1:5,3,3]
+
+Challenge 4:
+Platyrrhini<- c("Cebidae", "Atelidae", "Pitheciidae")
+Catarrhini<- c("Cercopithecidae", "Hylobatidae", "Hominidae")
+Tarsioidea <-c("Tarsiidae")
+Anthropoidea <- list(Catarrhini, Platyrrhini)
+names(Antrhopoidea)<- list("Catarrhini", "Platyrrhini")
+Haplorhini<- list(Anthropoidea, Tarsioidea)
+names(Haplorhini)<- list("Anthropoidea", "Tarsioidea")
+Lemuroidea <- c("Cheirogaleidae", "Lepilemuridae", "Indriidae", "Lemuridae",
+    "Daubentoniidae")
+Lorisoidea <- c("Lorisidae", "Galagidae")
+Strepsirhini <- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) <- list("Lemuroidea", "Lorisoidea")
+Primates<- list(Haplorhini, Strepsirhini)
+names(Primates)<- list("Haplorhini", "Strepsirhini")
+Primates
+
+Challenge 5:
+d1<- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
+m3<- matrix(d1, nrow=5, ncol=3, byrow=TRUE)
+m3
+df<- data.frame(m3)
+df
+as.logical(df$X2)
+df
+as.factor(df$X3)
+str(df)

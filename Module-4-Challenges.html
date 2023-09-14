@@ -360,39 +360,308 @@ display: none;
 <p>Note that the <code>echo = FALSE</code> parameter was added to the
 code chunk to prevent printing of the R code that generated the
 plot.</p>
-<p>##Challenge 1: v &lt;- c(“Stately, plump Buck Mulligan came from the
-stairhead, bearing a bowl of lather on which a mirror and a razor lay
-crossed.”) str_split(v, NULL)[[2]]</p>
-<p>I attempted to extract every third element but I. found some trouble
-along the way x &lt;- “Stately, plump Buck Mulligan came from the
-stairhead, bearing a bowl of lather on which a mirror and a razor lay
-crossed.” n &lt;- 40 f&lt;- 32
-strsplit(gsub(paste0(“([[:alnum:]]{”,<br />
-n, “})”), “\1”, x), split = “f”)[[1]]</p>
-<p>##Challenge 2: m &lt;- matrix(data = 1:80, nrow = 8, ncol = 10, byrow
-= FALSE) m x&lt;-m[,c(2,3,6)] x x&lt;-m[c(6,8),] x</p>
-<p>##Challenge 3: a&lt;- array(data = 400:1, dim= c(5,5,4,4)) a
-//creates array with numbers decending from 400-1 with they dimensions
-of 5,5,4,4 a[1,1,1,2] a[2,3,2,] a[1:5,1:5,3,3]</p>
-<p>##Challenge 4: Platyrrhini&lt;- c(“Cebidae”, “Atelidae”,
-“Pitheciidae”) Catarrhini&lt;- c(“Cercopithecidae”, “Hylobatidae”,
-“Hominidae”) Tarsioidea &lt;-c(“Tarsiidae”) Anthropoidea &lt;-
-list(Catarrhini, Platyrrhini) names(Antrhopoidea)&lt;-
-list(“Catarrhini”, “Platyrrhini”) Haplorhini&lt;- list(Anthropoidea,
-Tarsioidea) names(Haplorhini)&lt;- list(“Anthropoidea”, “Tarsioidea”)
-Lemuroidea &lt;- c(“Cheirogaleidae”, “Lepilemuridae”, “Indriidae”,
-“Lemuridae”, “Daubentoniidae”) Lorisoidea &lt;- c(“Lorisidae”,
-“Galagidae”) Strepsirhini &lt;- list(Lemuroidea, Lorisoidea)
-names(Strepsirhini) &lt;- list(“Lemuroidea”, “Lorisoidea”) Primates&lt;-
-list(Haplorhini, Strepsirhini) names(Primates)&lt;- list(“Haplorhini”,
-“Strepsirhini”) Primates //creating lists</p>
-<p>##Challenge 5: d1&lt;- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41,
-0, 2) //data for matrix m3&lt;- matrix(d1, nrow=5, ncol=3, byrow=TRUE)
-//creates matrix with 5 rows/3 colums using d1 as data m3 df&lt;-
-data.frame(m3) //converts matrix into data frame do it can be
-manipulated differently df as.logical(df<span class="math inline">\(X2)
-//makes column 2 logical valued df as.factor(df\)</span>X3) // makes
-colum 3 factor valued str(df)</p>
+<p>##Challenge 1</p>
+<p>###I attempted to extract every third element but I found some
+trouble along the way</p>
+<p>##However, Jimmy helped me at the begining of class</p>
+<p>##library(stringr) ###jimmy_ulysses &lt;- gsub(“[[:punct:]]”,
+replacement = ““, ulysses) #this takes out all punctuation and replaces
+it with a space ###jimmy_ulysses &lt;- unliststr_split(jimmy_ulysses,
+pattern =” “) #this separates the string and makes it into a list
+###unlist(jimmy_ulysses)[seq(from = 1, to = 22, by = 3)] #makes string
+into vector again and generates sequence from vector using every 3
+words</p>
+<pre><code>
+
+```r
+library(stringr)
+ulysses &lt;- &quot;Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.&quot;
+reese_ulysses&lt;- gsub(&quot;[[:punct:]]&quot;, replacement = &quot;&quot;, ulysses)
+#this takes out all punctuation and replaces it with a space
+reese_ulysses</code></pre>
+<pre><code>## [1] &quot;Stately plump Buck Mulligan came from the stairhead bearing a bowl of lather on which a mirror and a razor lay crossed&quot;</code></pre>
+<pre class="r"><code>reese_ulysses&lt;-str_split(reese_ulysses, &quot; &quot;)
+#this separates the string and puts an extra space between each word
+reese_ulysses</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;Stately&quot;   &quot;plump&quot;     &quot;Buck&quot;      &quot;Mulligan&quot;  &quot;came&quot;      &quot;from&quot;     
+##  [7] &quot;the&quot;       &quot;stairhead&quot; &quot;bearing&quot;   &quot;a&quot;         &quot;bowl&quot;      &quot;of&quot;       
+## [13] &quot;lather&quot;    &quot;on&quot;        &quot;which&quot;     &quot;a&quot;         &quot;mirror&quot;    &quot;and&quot;      
+## [19] &quot;a&quot;         &quot;razor&quot;     &quot;lay&quot;       &quot;crossed&quot;</code></pre>
+<pre class="r"><code>reese_ulysses&lt;-unlist(reese_ulysses)[seq(from=1, to= 22, by= 3)]
+#makes string into vector again and generates sequence from vector using every 3 words
+reese_ulysses</code></pre>
+<pre><code>## [1] &quot;Stately&quot;  &quot;Mulligan&quot; &quot;the&quot;      &quot;a&quot;        &quot;lather&quot;   &quot;a&quot;        &quot;a&quot;       
+## [8] &quot;crossed&quot;</code></pre>
+<p>##Challenge 2</p>
+<pre class="r"><code>m &lt;- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
+m</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    1    9   17   25   33   41   49   57   65    73
+## [2,]    2   10   18   26   34   42   50   58   66    74
+## [3,]    3   11   19   27   35   43   51   59   67    75
+## [4,]    4   12   20   28   36   44   52   60   68    76
+## [5,]    5   13   21   29   37   45   53   61   69    77
+## [6,]    6   14   22   30   38   46   54   62   70    78
+## [7,]    7   15   23   31   39   47   55   63   71    79
+## [8,]    8   16   24   32   40   48   56   64   72    80</code></pre>
+<pre class="r"><code>#creates matrix
+x&lt;-m[,c(2,3,6)]
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9   17   41
+## [2,]   10   18   42
+## [3,]   11   19   43
+## [4,]   12   20   44
+## [5,]   13   21   45
+## [6,]   14   22   46
+## [7,]   15   23   47
+## [8,]   16   24   48</code></pre>
+<pre class="r"><code>#shows columns 2, 3, and 6
+x&lt;-m[c(6,8),]
+x</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+## [1,]    6   14   22   30   38   46   54   62   70    78
+## [2,]    8   16   24   32   40   48   56   64   72    80</code></pre>
+<pre class="r"><code>#shows rows 6 and 8</code></pre>
+<p>##Challenge 3</p>
+<pre class="r"><code>a&lt;- array(data = 400:1, dim= c(5,5,4,4))
+#creates array with numbers decending from 400-1 with they dimensions of 5,5,4,4
+a </code></pre>
+<pre><code>## , , 1, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  400  395  390  385  380
+## [2,]  399  394  389  384  379
+## [3,]  398  393  388  383  378
+## [4,]  397  392  387  382  377
+## [5,]  396  391  386  381  376
+## 
+## , , 2, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  375  370  365  360  355
+## [2,]  374  369  364  359  354
+## [3,]  373  368  363  358  353
+## [4,]  372  367  362  357  352
+## [5,]  371  366  361  356  351
+## 
+## , , 3, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  350  345  340  335  330
+## [2,]  349  344  339  334  329
+## [3,]  348  343  338  333  328
+## [4,]  347  342  337  332  327
+## [5,]  346  341  336  331  326
+## 
+## , , 4, 1
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  325  320  315  310  305
+## [2,]  324  319  314  309  304
+## [3,]  323  318  313  308  303
+## [4,]  322  317  312  307  302
+## [5,]  321  316  311  306  301
+## 
+## , , 1, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  300  295  290  285  280
+## [2,]  299  294  289  284  279
+## [3,]  298  293  288  283  278
+## [4,]  297  292  287  282  277
+## [5,]  296  291  286  281  276
+## 
+## , , 2, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  275  270  265  260  255
+## [2,]  274  269  264  259  254
+## [3,]  273  268  263  258  253
+## [4,]  272  267  262  257  252
+## [5,]  271  266  261  256  251
+## 
+## , , 3, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  250  245  240  235  230
+## [2,]  249  244  239  234  229
+## [3,]  248  243  238  233  228
+## [4,]  247  242  237  232  227
+## [5,]  246  241  236  231  226
+## 
+## , , 4, 2
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  225  220  215  210  205
+## [2,]  224  219  214  209  204
+## [3,]  223  218  213  208  203
+## [4,]  222  217  212  207  202
+## [5,]  221  216  211  206  201
+## 
+## , , 1, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  200  195  190  185  180
+## [2,]  199  194  189  184  179
+## [3,]  198  193  188  183  178
+## [4,]  197  192  187  182  177
+## [5,]  196  191  186  181  176
+## 
+## , , 2, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  175  170  165  160  155
+## [2,]  174  169  164  159  154
+## [3,]  173  168  163  158  153
+## [4,]  172  167  162  157  152
+## [5,]  171  166  161  156  151
+## 
+## , , 3, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126
+## 
+## , , 4, 3
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  125  120  115  110  105
+## [2,]  124  119  114  109  104
+## [3,]  123  118  113  108  103
+## [4,]  122  117  112  107  102
+## [5,]  121  116  111  106  101
+## 
+## , , 1, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  100   95   90   85   80
+## [2,]   99   94   89   84   79
+## [3,]   98   93   88   83   78
+## [4,]   97   92   87   82   77
+## [5,]   96   91   86   81   76
+## 
+## , , 2, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   75   70   65   60   55
+## [2,]   74   69   64   59   54
+## [3,]   73   68   63   58   53
+## [4,]   72   67   62   57   52
+## [5,]   71   66   61   56   51
+## 
+## , , 3, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   50   45   40   35   30
+## [2,]   49   44   39   34   29
+## [3,]   48   43   38   33   28
+## [4,]   47   42   37   32   27
+## [5,]   46   41   36   31   26
+## 
+## , , 4, 4
+## 
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   25   20   15   10    5
+## [2,]   24   19   14    9    4
+## [3,]   23   18   13    8    3
+## [4,]   22   17   12    7    2
+## [5,]   21   16   11    6    1</code></pre>
+<pre class="r"><code>a[1,1,1,2]</code></pre>
+<pre><code>## [1] 300</code></pre>
+<pre class="r"><code>#returns data at that point in the array
+a[2,3,2,]</code></pre>
+<pre><code>## [1] 364 264 164  64</code></pre>
+<pre class="r"><code>#returns row
+a[1:5,1:5,3,3]</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]  150  145  140  135  130
+## [2,]  149  144  139  134  129
+## [3,]  148  143  138  133  128
+## [4,]  147  142  137  132  127
+## [5,]  146  141  136  131  126</code></pre>
+<pre class="r"><code>#returns columns/rows 1-5 of the array 3,3</code></pre>
+<p>##Challenge 4:</p>
+<pre class="r"><code>Platyrrhini&lt;- c(&quot;Cebidae&quot;, &quot;Atelidae&quot;, &quot;Pitheciidae&quot;)
+Catarrhini&lt;- c(&quot;Cercopithecidae&quot;, &quot;Hylobatidae&quot;, &quot;Hominidae&quot;)
+Tarsioidea &lt;-c(&quot;Tarsiidae&quot;)
+Anthropoidea &lt;- list(Catarrhini, Platyrrhini)
+names(Anthropoidea)&lt;- list(&quot;Catarrhini&quot;, &quot;Platyrrhini&quot;)
+Haplorhini&lt;- list(Anthropoidea, Tarsioidea)
+names(Haplorhini)&lt;- list(&quot;Anthropoidea&quot;, &quot;Tarsioidea&quot;)
+Lemuroidea &lt;- c(&quot;Cheirogaleidae&quot;, &quot;Lepilemuridae&quot;, &quot;Indriidae&quot;, &quot;Lemuridae&quot;,
+    &quot;Daubentoniidae&quot;)
+Lorisoidea &lt;- c(&quot;Lorisidae&quot;, &quot;Galagidae&quot;)
+Strepsirhini &lt;- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) &lt;- list(&quot;Lemuroidea&quot;, &quot;Lorisoidea&quot;)
+Primates&lt;- list(Haplorhini, Strepsirhini)
+names(Primates)&lt;- list(&quot;Haplorhini&quot;, &quot;Strepsirhini&quot;)
+Primates</code></pre>
+<pre><code>## $Haplorhini
+## $Haplorhini$Anthropoidea
+## $Haplorhini$Anthropoidea$Catarrhini
+## [1] &quot;Cercopithecidae&quot; &quot;Hylobatidae&quot;     &quot;Hominidae&quot;      
+## 
+## $Haplorhini$Anthropoidea$Platyrrhini
+## [1] &quot;Cebidae&quot;     &quot;Atelidae&quot;    &quot;Pitheciidae&quot;
+## 
+## 
+## $Haplorhini$Tarsioidea
+## [1] &quot;Tarsiidae&quot;
+## 
+## 
+## $Strepsirhini
+## $Strepsirhini$Lemuroidea
+## [1] &quot;Cheirogaleidae&quot; &quot;Lepilemuridae&quot;  &quot;Indriidae&quot;      &quot;Lemuridae&quot;     
+## [5] &quot;Daubentoniidae&quot;
+## 
+## $Strepsirhini$Lorisoidea
+## [1] &quot;Lorisidae&quot; &quot;Galagidae&quot;</code></pre>
+<pre class="r"><code>#this creates a organized list of primate taxonomy with subsets </code></pre>
+<p>##Challenge 5:</p>
+<pre class="r"><code>d1&lt;- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2) 
+#data for matrix
+m3&lt;- matrix(d1, nrow=5, ncol=3, byrow=TRUE) 
+#creates matrix with 5 rows/3 colums using d1 as data
+m3</code></pre>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    3    0    1
+## [2,]   23    1    2
+## [3,]   33    1    1
+## [4,]   42    0    1
+## [5,]   41    0    2</code></pre>
+<pre class="r"><code>df&lt;- data.frame(m3) 
+#converts matrix into data frame do it can be manipulated differently
+df</code></pre>
+<pre><code>##   X1 X2 X3
+## 1  3  0  1
+## 2 23  1  2
+## 3 33  1  1
+## 4 42  0  1
+## 5 41  0  2</code></pre>
+<pre class="r"><code>as.logical(df$X2) </code></pre>
+<pre><code>## [1] FALSE  TRUE  TRUE FALSE FALSE</code></pre>
+<pre class="r"><code>#makes column 2 logical valued
+df</code></pre>
+<pre><code>##   X1 X2 X3
+## 1  3  0  1
+## 2 23  1  2
+## 3 33  1  1
+## 4 42  0  1
+## 5 41  0  2</code></pre>
+<pre class="r"><code>as.factor(df$X3) </code></pre>
+<pre><code>## [1] 1 2 1 1 2
+## Levels: 1 2</code></pre>
+<pre class="r"><code>#makes colum 3 factor valued
+str(df)</code></pre>
+<pre><code>## &#39;data.frame&#39;:    5 obs. of  3 variables:
+##  $ X1: num  3 23 33 42 41
+##  $ X2: num  0 1 1 0 0
+##  $ X3: num  1 2 1 1 2</code></pre>
 
 
 

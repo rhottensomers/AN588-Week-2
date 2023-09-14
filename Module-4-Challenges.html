@@ -357,60 +357,42 @@ display: none;
 </div>
 
 
-<div id="r-markdown" class="section level2">
-<h2>R Markdown</h2>
-<p>This is an R Markdown document. Markdown is a simple formatting
-syntax for authoring HTML, PDF, and MS Word documents. For more details
-on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
-<p>When you click the <strong>Knit</strong> button a document will be
-generated that includes both content as well as the output of any
-embedded R code chunks within the document. You can embed an R code
-chunk like this:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
-</div>
-<div id="including-plots" class="section level2">
-<h2>Including Plots</h2>
 <p>Note that the <code>echo = FALSE</code> parameter was added to the
 code chunk to prevent printing of the R code that generated the
 plot.</p>
-<p>Challenge 1: v &lt;- c(“Stately, plump Buck Mulligan came from the
+<p>##Challenge 1: v &lt;- c(“Stately, plump Buck Mulligan came from the
 stairhead, bearing a bowl of lather on which a mirror and a razor lay
 crossed.”) str_split(v, NULL)[[2]]</p>
-<p>x &lt;- “Stately, plump Buck Mulligan came from the stairhead,
-bearing a bowl of lather on which a mirror and a razor lay crossed.” n
-&lt;- 40 f&lt;- 32 strsplit(gsub(paste0(“([[:alnum:]]{”,<br />
+<p>I attempted to extract every third element but I. found some trouble
+along the way x &lt;- “Stately, plump Buck Mulligan came from the
+stairhead, bearing a bowl of lather on which a mirror and a razor lay
+crossed.” n &lt;- 40 f&lt;- 32
+strsplit(gsub(paste0(“([[:alnum:]]{”,<br />
 n, “})”), “\1”, x), split = “f”)[[1]]</p>
-<p>Challenge 2: m &lt;- matrix(data = 1:80, nrow = 8, ncol = 10, byrow =
-FALSE) m x&lt;-m[,c(2,3,6)] x x&lt;-m[c(6,8),] x</p>
-<p>Challenge 3: a&lt;- array(data = 400:1, dim= c(5,5,4,4)) a //creates
-array with numbers decending from 400-1 with they dimensions of 5,5,4,4
-a[1,1,1,2] a[2,3,2,] a[1:5,1:5,3,3]</p>
-<p>Challenge 4: Platyrrhini&lt;- c(“Cebidae”, “Atelidae”, “Pitheciidae”)
-Catarrhini&lt;- c(“Cercopithecidae”, “Hylobatidae”, “Hominidae”)
-Tarsioidea &lt;-c(“Tarsiidae”) Anthropoidea &lt;- list(Catarrhini,
-Platyrrhini) names(Antrhopoidea)&lt;- list(“Catarrhini”, “Platyrrhini”)
-Haplorhini&lt;- list(Anthropoidea, Tarsioidea) names(Haplorhini)&lt;-
-list(“Anthropoidea”, “Tarsioidea”) Lemuroidea &lt;- c(“Cheirogaleidae”,
-“Lepilemuridae”, “Indriidae”, “Lemuridae”, “Daubentoniidae”) Lorisoidea
-&lt;- c(“Lorisidae”, “Galagidae”) Strepsirhini &lt;- list(Lemuroidea,
-Lorisoidea) names(Strepsirhini) &lt;- list(“Lemuroidea”, “Lorisoidea”)
-Primates&lt;- list(Haplorhini, Strepsirhini) names(Primates)&lt;-
-list(“Haplorhini”, “Strepsirhini”) Primates //creating lists</p>
-<p>Challenge 5: d1&lt;- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0,
-2) //data for matrix m3&lt;- matrix(d1, nrow=5, ncol=3, byrow=TRUE)
+<p>##Challenge 2: m &lt;- matrix(data = 1:80, nrow = 8, ncol = 10, byrow
+= FALSE) m x&lt;-m[,c(2,3,6)] x x&lt;-m[c(6,8),] x</p>
+<p>##Challenge 3: a&lt;- array(data = 400:1, dim= c(5,5,4,4)) a
+//creates array with numbers decending from 400-1 with they dimensions
+of 5,5,4,4 a[1,1,1,2] a[2,3,2,] a[1:5,1:5,3,3]</p>
+<p>##Challenge 4: Platyrrhini&lt;- c(“Cebidae”, “Atelidae”,
+“Pitheciidae”) Catarrhini&lt;- c(“Cercopithecidae”, “Hylobatidae”,
+“Hominidae”) Tarsioidea &lt;-c(“Tarsiidae”) Anthropoidea &lt;-
+list(Catarrhini, Platyrrhini) names(Antrhopoidea)&lt;-
+list(“Catarrhini”, “Platyrrhini”) Haplorhini&lt;- list(Anthropoidea,
+Tarsioidea) names(Haplorhini)&lt;- list(“Anthropoidea”, “Tarsioidea”)
+Lemuroidea &lt;- c(“Cheirogaleidae”, “Lepilemuridae”, “Indriidae”,
+“Lemuridae”, “Daubentoniidae”) Lorisoidea &lt;- c(“Lorisidae”,
+“Galagidae”) Strepsirhini &lt;- list(Lemuroidea, Lorisoidea)
+names(Strepsirhini) &lt;- list(“Lemuroidea”, “Lorisoidea”) Primates&lt;-
+list(Haplorhini, Strepsirhini) names(Primates)&lt;- list(“Haplorhini”,
+“Strepsirhini”) Primates //creating lists</p>
+<p>##Challenge 5: d1&lt;- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41,
+0, 2) //data for matrix m3&lt;- matrix(d1, nrow=5, ncol=3, byrow=TRUE)
 //creates matrix with 5 rows/3 colums using d1 as data m3 df&lt;-
 data.frame(m3) //converts matrix into data frame do it can be
 manipulated differently df as.logical(df<span class="math inline">\(X2)
 //makes column 2 logical valued df as.factor(df\)</span>X3) // makes
 colum 3 factor valued str(df)</p>
-</div>
 
 
 

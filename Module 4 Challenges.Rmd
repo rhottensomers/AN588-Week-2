@@ -15,7 +15,7 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 v <- c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
 str_split(v, NULL)[[2]]
 
-I attempted to extract every third element but I found some trouble along the way
+I attempted to extract every third element but I.  found some trouble along the way
 x <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 n <- 40
 f<- 32

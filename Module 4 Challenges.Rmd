@@ -31,7 +31,17 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 Challenge 1:
 v <- c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
-print(strsplit(v, NULL)[[2]])
+str_split(v, NULL)[[2]]
+
+x <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
+n <- 40
+f<- 32
+strsplit(gsub(paste0("([[:alnum:]]{",    
+                     n,
+                     "})"),
+              "\\1 ",
+              x),
+        split = "f")[[1]]
 
 Challenge 2:
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)

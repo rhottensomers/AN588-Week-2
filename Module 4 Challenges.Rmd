@@ -53,10 +53,11 @@ x
 
 Challenge 3:
 a<- array(data = 400:1, dim= c(5,5,4,4))
-a
+a //creates array with numbers decending from 400-1 with they dimensions of 5,5,4,4
 a[1,1,1,2]
 a[2,3,2,]
 a[1:5,1:5,3,3]
+
 
 Challenge 4:
 Platyrrhini<- c("Cebidae", "Atelidae", "Pitheciidae")
@@ -74,14 +75,16 @@ names(Strepsirhini) <- list("Lemuroidea", "Lorisoidea")
 Primates<- list(Haplorhini, Strepsirhini)
 names(Primates)<- list("Haplorhini", "Strepsirhini")
 Primates
+//creating lists
 
 Challenge 5:
-d1<- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2)
-m3<- matrix(d1, nrow=5, ncol=3, byrow=TRUE)
+d1<- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2) //data for matrix
+m3<- matrix(d1, nrow=5, ncol=3, byrow=TRUE) //creates matrix with 5 rows/3 colums using d1 as data
 m3
-df<- data.frame(m3)
+df<- data.frame(m3) //converts matrix into data frame do it can be manipulated differently
 df
-as.logical(df$X2)
+as.logical(df$X2) //makes column 2 logical valued
 df
-as.factor(df$X3)
+as.factor(df$X3) // makes colum 3 factor valued
 str(df)
+

@@ -9,30 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 
-Challenge 1:
+##Challenge 1:
 v <- c("Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed.")
 str_split(v, NULL)[[2]]
 
+I attempted to extract every third element but I found some trouble along the way
 x <- "Stately, plump Buck Mulligan came from the stairhead, bearing a bowl of lather on which a mirror and a razor lay crossed."
 n <- 40
 f<- 32
@@ -43,7 +26,7 @@ strsplit(gsub(paste0("([[:alnum:]]{",
               x),
         split = "f")[[1]]
 
-Challenge 2:
+##Challenge 2:
 m <- matrix(data = 1:80, nrow = 8, ncol = 10, byrow = FALSE)
 m
 x<-m[,c(2,3,6)]
@@ -51,7 +34,7 @@ x
 x<-m[c(6,8),]
 x
 
-Challenge 3:
+##Challenge 3:
 a<- array(data = 400:1, dim= c(5,5,4,4))
 a //creates array with numbers decending from 400-1 with they dimensions of 5,5,4,4
 a[1,1,1,2]
@@ -59,7 +42,7 @@ a[2,3,2,]
 a[1:5,1:5,3,3]
 
 
-Challenge 4:
+##Challenge 4:
 Platyrrhini<- c("Cebidae", "Atelidae", "Pitheciidae")
 Catarrhini<- c("Cercopithecidae", "Hylobatidae", "Hominidae")
 Tarsioidea <-c("Tarsiidae")
@@ -77,7 +60,7 @@ names(Primates)<- list("Haplorhini", "Strepsirhini")
 Primates
 //creating lists
 
-Challenge 5:
+##Challenge 5:
 d1<- c(3, 0, 1 ,23, 1, 2, 33, 1, 1, 42, 0, 1, 41, 0, 2) //data for matrix
 m3<- matrix(d1, nrow=5, ncol=3, byrow=TRUE) //creates matrix with 5 rows/3 colums using d1 as data
 m3
